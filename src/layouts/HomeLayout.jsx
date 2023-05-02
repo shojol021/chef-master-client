@@ -8,8 +8,6 @@ const HomeLayout = () => {
     return (
         <div>
             <Header></Header>
-            <Banner></Banner>
-            <ChefsSection></ChefsSection>
             <Outlet></Outlet>
         </div>
     );

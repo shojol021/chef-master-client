@@ -6,7 +6,7 @@ const ChefsSection = () => {
     const [chefs, setChefs] = useState([])
 
     useEffect(() => {
-        fetch('http://localhost:3000/chefs')
+        fetch('https://assignment-10-ph-server-shojol021.vercel.app/chefs')
             .then(res => res.json())
             .then(data => setChefs(data))
             .catch(error => console.log(error))

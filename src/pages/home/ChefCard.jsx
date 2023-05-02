@@ -31,7 +31,7 @@ const ChefCard = ({ chef }) => {
                                 </div>
                             </div>
                             <div className='text-center'>
-                                <Button variant='warning' className='w-50'>View Recipes</Button>
+                                <Button variant='dark' className='w-50'>View Recipes</Button>
                             </div>
                         </div>
                     </div>

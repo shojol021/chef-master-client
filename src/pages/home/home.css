@@ -1,6 +1,6 @@
 .card-bg {
-    background: linear-gradient(to bottom right, #f9d523, #ff4e51);
-}
+    background: linear-gradient(to bottom right, rgba(249, 213, 35, 0.7), rgba(255, 78, 81, 0.7));
+  }
 
 .background-img {
     background-image: url('https://i.postimg.cc/tCV9znC8/chef-bg.jpg');

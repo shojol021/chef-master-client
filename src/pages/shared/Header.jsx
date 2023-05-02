@@ -1,9 +1,12 @@
+import { Button } from 'react-bootstrap';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
+import { Link } from 'react-router-dom';
 
 function Header() {
+  const user = 5
   return (
     <Navbar collapseOnSelect expand="lg" bg="warning" variant="light">
       <Container>
@@ -26,10 +29,7 @@ function Header() {
             </NavDropdown>
           </Nav>
           <Nav>
-            <Nav.Link href="#deets">More deets</Nav.Link>
-            <Nav.Link eventKey={2} href="#memes">
-              Dank memes
-            </Nav.Link>
+            {user? <Link to='/login'><Button variant='dark'>Signout</Button></Link>: <Link to='/login'><Button variant='dark'>Login</Button></Link>}
           </Nav>
         </Navbar.Collapse>
       </Container>
