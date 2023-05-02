@@ -2,34 +2,26 @@ import { Button } from 'react-bootstrap';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import NavDropdown from 'react-bootstrap/NavDropdown';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
+import { FaUserAlt } from 'react-icons/fa';
 
 function Header() {
-  const user = 5
+  const user = null
+  const location = useLocation()
+
   return (
     <Navbar collapseOnSelect expand="lg" bg="warning" variant="light">
       <Container>
-        <Navbar.Brand href="#home">Sabor Mexicano</Navbar.Brand>
+        <Navbar.Brand className='fw-bold fs-4'>Sabor Mexicano</Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
-          <Nav className="mx-auto">
-            <Nav.Link href="#features">Features</Nav.Link>
-            <Nav.Link href="#pricing">Pricing</Nav.Link>
-            <NavDropdown title="Dropdown" id="collasible-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">
-                Another action
-              </NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item href="#action/3.4">
-                Separated link
-              </NavDropdown.Item>
-            </NavDropdown>
+          <Nav className="me-auto">
+            <Nav.Link href="#features">Home</Nav.Link>
+            <Nav.Link href="#pricing">Blogs</Nav.Link>
           </Nav>
           <Nav>
-            {user? <Link to='/login'><Button variant='dark'>Signout</Button></Link>: <Link to='/login'><Button variant='dark'>Login</Button></Link>}
+            <FaUserAlt className='fs-2 my-auto mb-2 mb-md-1 mx-2' />
+            {user ? <Link to='/login'><Button variant='dark'>Signout</Button></Link> : <Link to='/login'><Button variant='dark'>Login</Button></Link>}
           </Nav>
         </Navbar.Collapse>
       </Container>
