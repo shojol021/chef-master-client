@@ -1,0 +1,22 @@
+.card-bg {
+    background: linear-gradient(to bottom right, #f9d523, #ff4e51);
+}
+
+.background-img {
+    background-image: url('https://i.postimg.cc/tCV9znC8/chef-bg.jpg');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    position: relative;
+}
+
+.background::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(101, 37, 0, 0.5); /* Set the color and opacity of the overlay */
+  }
+
+  
