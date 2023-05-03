@@ -26,24 +26,32 @@ const Login = () => {
         const email = form.email.value;
         const password = form.password.value;
 
+        emailLogin(email, password)
+            .then(res => {
+                const loggedUser = res.user;
+                console.log(loggedUser)
+            })
+            .catch(error => console.log(error))
+
     }
 
     const handleGoogLogin = () => {
         googleLogin()
-        .then(res => {
-            const user = res.user;
-            console.log(user)
-        })
-        .catch(error => console.log(error))
+            .then(res => {
+                const loggedUser = res.user;
+                console.log(loggedUser)
+            })
+            .catch(error => console.log(error))
     }
     const handleGithubLogin = () => {
         githubLogin()
-        .then(res => {
-            const user = res.user;
-            console.log(user)
-        })
-        .catch(error => console.log(error))
+            .then(res => {
+                const loggedUser = res.user;
+                console.log(loggedUser)
+            })
+            .catch(error => console.log(error))
     }
+
 
     return (
         <Form className='w-25 mx-auto mt-3' onSubmit={handleLogin}>
@@ -72,9 +80,9 @@ const Login = () => {
                 </div>
             </Form.Text>
 
-            <div className='bg-warning d-flex justify-content-center align-items-center'>Or login with
-                <span onClick={handleGoogLogin} className='mx-2 fs-3 text-success btn my-2'><FaGoogle></FaGoogle></span>
-                <span onClick={handleGithubLogin} className='fs-3 text-dark btn my-2'><FaGithub></FaGithub></span>
+            <div className='bg-warnig text-center'>
+                <Button onClick={handleGoogLogin} variant="outline-success" className='w-100 my-2'><FaGoogle className='me-2'></FaGoogle>Login with Google</Button><br />
+                <Button onClick={handleGithubLogin} variant="outline-dark" className='w-100 my-2'><FaGithub className='me-2'></FaGithub>Login with Github</Button>
             </div>
 
 

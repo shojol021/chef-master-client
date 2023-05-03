@@ -1,5 +1,5 @@
 import React, { createContext, useEffect, useState } from 'react';
-import {getAuth, GithubAuthProvider, GoogleAuthProvider, createUserWithEmailAndPassword, onAuthStateChanged, sendPasswordResetEmail, signInWithEmailAndPassword, signInWithPopup, signOut } from "firebase/auth";
+import {getAuth, GithubAuthProvider, GoogleAuthProvider, createUserWithEmailAndPassword, onAuthStateChanged, sendPasswordResetEmail, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
 import app from '../firebase/firebase.config';
 
 export const AuthContext = createContext(null)
@@ -10,7 +10,7 @@ const githubProvider = new GithubAuthProvider()
 const AuthProvider = ({children}) => {
 
     const [user, setUser] = useState(null)
-    const [loading, setLoading] = useState(null)
+    const [loading, setLoading] = useState(true)
 
     const emailSignUp = (email, password) => {
        return createUserWithEmailAndPassword(auth, email, password)
@@ -30,6 +30,14 @@ const AuthProvider = ({children}) => {
     const logOut = () => {
        return signOut(auth)
     }
+    const updateUser = (name, photo) => {
+        updateProfile(user, {
+            displayName: 'Naam', photoURL: 'Chobi'
+        })
+        .then(()=> {console.log('profile updated')})
+        .catch(error => console.log('error hoilo', error))
+        console.log('called')
+    }
 
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, currentUser => {
@@ -44,12 +52,14 @@ const AuthProvider = ({children}) => {
     const authInfo = {
         user,
         loading,
+        setLoading,
         emailSignUp,
         emailLogin,
         forgotPassword,
         googleLogin,
         githubLogin,
-        logOut
+        logOut,
+        updateUser
         
 
     }

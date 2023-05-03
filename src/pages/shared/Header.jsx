@@ -11,7 +11,6 @@ import './shared.css'
 function Header() {
   const { user, logOut } = useContext(AuthContext)
   const location = useLocation()
-  console.log(user)
 
   const handleLogOut = () => {
     logOut()
@@ -20,7 +19,7 @@ function Header() {
 
 
   return (
-    <Navbar collapseOnSelect expand="lg" bg="warning" variant="light">
+    <Navbar collapseOnSelect expand="lg" bg="warning" variant="light" fixed='top'>
       <Container>
         <Navbar.Brand className='fw-bold fs-4'><Link className='text-decoration-none text-dark' to='/'>Sabor Mexicano</Link></Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
