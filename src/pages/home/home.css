@@ -1,23 +1,12 @@
 .card-bg {
-    background: linear-gradient(to bottom right, rgba(249, 213, 35, 0.8), rgba(255, 78, 81, 0.8));
-  }
-
-.background-img {
-    background-image: url('https://png.pngtree.com/background/20210710/original/pngtree-blue-light-effect-particle-banner-background-picture-image_1029787.jpg');
-    background-size: 100% 100%;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    position: relative;
+  background: linear-gradient(to bottom right, rgba(249, 213, 35, 0.8), rgba(255, 78, 81, 0.8));
 }
 
-.background::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    background-color: rgba(0, 0, 0, 0.6); /* Set the color and opacity of the overlay */
-  }
+.background-img {
+  background-image: url('https://cdn.pixabay.com/photo/2021/06/03/01/54/spices-6305702_1280.jpg');
+  background-size: 100% 110%;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  position: relative;
+}
 
-  

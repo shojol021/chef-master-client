@@ -21,6 +21,7 @@ const Register = () => {
         const email = form.email.value;
         const password = form.password.value;
         const password2 = form.password2.value;
+        
     }
 
     return (
