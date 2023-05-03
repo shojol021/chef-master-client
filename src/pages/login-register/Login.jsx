@@ -1,9 +1,20 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { FaGithub, FaGoogle } from 'react-icons/fa';
+import { AuthContext } from '../../providers/AuthProvider';
 
 const Login = () => {
+
+    const {
+        user,
+        loading,
+        emailSignUp,
+        emailLogin,
+        forgotPassword,
+        googleLogin,
+        githubLogin
+    } = useContext(AuthContext)
 
     const [success, setSuccess] = useState('')
     const [error, setError] = useState('')
@@ -15,6 +26,23 @@ const Login = () => {
         const email = form.email.value;
         const password = form.password.value;
 
+    }
+
+    const handleGoogLogin = () => {
+        googleLogin()
+        .then(res => {
+            const user = res.user;
+            console.log(user)
+        })
+        .catch(error => console.log(error))
+    }
+    const handleGithubLogin = () => {
+        githubLogin()
+        .then(res => {
+            const user = res.user;
+            console.log(user)
+        })
+        .catch(error => console.log(error))
     }
 
     return (
@@ -32,6 +60,7 @@ const Login = () => {
             <Form.Text className="text-muted">
                 <p className='mb-3'>{success}</p>
                 <p className='mb-3'>{error}</p>
+                <p className='mb-3 btn-link'>Fogot password?</p>
             </Form.Text>
             <Button variant="dark" type="submit">
                 Submit
@@ -44,8 +73,8 @@ const Login = () => {
             </Form.Text>
 
             <div className='bg-warning d-flex justify-content-center align-items-center'>Or login with
-                <span className='mx-2 fs-3 text-success btn my-2'><FaGoogle></FaGoogle></span>
-                <span className='fs-3 text-dark btn my-2'><FaGithub></FaGithub></span>
+                <span onClick={handleGoogLogin} className='mx-2 fs-3 text-success btn my-2'><FaGoogle></FaGoogle></span>
+                <span onClick={handleGithubLogin} className='fs-3 text-dark btn my-2'><FaGithub></FaGithub></span>
             </div>
 
 

@@ -6,8 +6,8 @@ const ChefCard = ({ chef }) => {
     const { id, chefName, yearsOfExperience, numRecipes, likes, profileImage, shortBio, recipes, } = chef
     return (
         <div className='py-3'>
-            <div className="card w-75 mx-auto">
-                <div className="row g-0 card-bg">
+            <div className="card w-75 mx-auto card-bg">
+                <div className="row g-0">
                     <div className="col-md-4">
                         <img src={profileImage} className="img-fluid rounded-start" alt="chef" />
                     </div>

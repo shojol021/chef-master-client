@@ -11,13 +11,18 @@ const ChefsSection = () => {
             .then(data => setChefs(data))
             .catch(error => console.log(error))
     }, [])
-    
+
     return (
-        <div className='background-img background py-5 my-5'>
-            {
-                chefs.map(chef => <ChefCard key={chef.id} chef={chef}></ChefCard>)
-            }
-        </div>
+        <>
+        <div className='bg-dark py-3'></div>
+            <h2 className='text-center bg-dark text-warning mb-0 py-3'>Our Chefs</h2>
+            <div className='background-img background py-5 my-'>
+
+                {
+                    chefs.map(chef => <ChefCard key={chef.id} chef={chef}></ChefCard>)
+                }
+            </div>
+        </>
     );
 };
 

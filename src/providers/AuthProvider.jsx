@@ -13,22 +13,22 @@ const AuthProvider = ({children}) => {
     const [loading, setLoading] = useState(null)
 
     const emailSignUp = (email, password) => {
-        createUserWithEmailAndPassword(auth, email, password)
+       return createUserWithEmailAndPassword(auth, email, password)
     }
     const emailLogin = (email, password) => {
-        signInWithEmailAndPassword(auth, email, password)
+       return signInWithEmailAndPassword(auth, email, password)
     }
     const forgotPassword = (email) => {
-        sendPasswordResetEmail(auth, email)
+       return sendPasswordResetEmail(auth, email)
     }
     const googleLogin = () => {
-        signInWithPopup(auth, googleProvider)
+       return signInWithPopup(auth, googleProvider)
     }
     const githubLogin = () => {
-        signInWithPopup(auth, githubProvider)
+       return signInWithPopup(auth, githubProvider)
     }
     const logOut = () => {
-        signOut(auth)
+       return signOut(auth)
     }
 
     useEffect(() => {

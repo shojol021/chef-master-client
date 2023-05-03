@@ -1,11 +1,12 @@
 .card-bg {
-    background: linear-gradient(to bottom right, rgba(249, 213, 35, 0.7), rgba(255, 78, 81, 0.7));
+    background: linear-gradient(to bottom right, rgba(249, 213, 35, 0.8), rgba(255, 78, 81, 0.8));
   }
 
 .background-img {
-    background-image: url('https://i.postimg.cc/tCV9znC8/chef-bg.jpg');
+    background-image: url('https://png.pngtree.com/background/20210710/original/pngtree-blue-light-effect-particle-banner-background-picture-image_1029787.jpg');
     background-size: 100% 100%;
     background-repeat: no-repeat;
+    background-attachment: fixed;
     position: relative;
 }
 
@@ -16,7 +17,7 @@
     left: 0;
     bottom: 0;
     right: 0;
-    background-color: rgba(101, 37, 0, 0.5); /* Set the color and opacity of the overlay */
+    background-color: rgba(0, 0, 0, 0.6); /* Set the color and opacity of the overlay */
   }
 
   
