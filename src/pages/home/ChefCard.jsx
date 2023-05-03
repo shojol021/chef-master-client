@@ -14,17 +14,17 @@ const ChefCard = ({ chef }) => {
                     <div className="col-md-8 my-auto">
                         <h4 className="card-title ms-3">{chefName}</h4>
                         <div className="card-body">
-                            <div class="container text-center">
-                                <div class="row">
-                                    <div class="col">
+                            <div className="container text-center">
+                                <div className="row">
+                                    <div className="col">
                                         <h6>Experience</h6>
                                         <p>{yearsOfExperience} Years</p>
                                     </div>
-                                    <div class="col">
+                                    <div className="col">
                                         <h6>Total Recipes</h6>
                                         <p>{numRecipes} Years</p>
                                     </div>
-                                    <div class="col">
+                                    <div className="col">
                                         <h6>Likes</h6>
                                         <p>{likes}</p>
                                     </div>

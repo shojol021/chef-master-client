@@ -8,11 +8,12 @@ const Register = () => {
     const [error, setError] = useState('')
     const [accept, setAccept] = useState(false)
 
-    const checkBox = () => {
-
+    const checkBox = (e) => {
+        const isChecked = e.target.checked;
+        setAccept(isChecked)
     }
 
-    const handleLogin = (event) => {
+    const handleRegister = (event) => {
         event.preventDefault()
 
         const form = event.target;
@@ -21,7 +22,8 @@ const Register = () => {
     }
 
     return (
-        <Form className='w-25 mx-auto mt-3' onSubmit={handleLogin}>
+        <Form className='w-25 mx-auto mt-3' onSubmit={handleRegister}>
+            <h3>Please Register</h3>
             <Form.Group className="mb-3" controlId="formBasicEmail">
                 <Form.Label>Name</Form.Label>
                 <Form.Control type="text" name='name' placeholder="Enter your name" required />
@@ -42,17 +44,20 @@ const Register = () => {
                 <Form.Control type="password" name='password' placeholder="Password" required />
             </Form.Group>
             <Form.Group className="mb-3" controlId="formBasicCheckbox">
-                <Form.Check type="checkbox" label="Check me out" />
+                <Form.Check onClick={checkBox} type="checkbox" label="Check me out" />
             </Form.Group>
             <Form.Text className="text-muted">
                 <p className='mb-3'>{success}</p>
                 <p className='mb-3'>{error}</p>
             </Form.Text>
-            <Button variant="dark" type="submit">
+            <Button variant="dark" type="submit" disabled={!accept}>
                 Submit
             </Button>
             <Form.Text className="text-muted">
-                <p className='mt-3'>Already have an account? <Link to='/login' className='btn btn-link'>Login here</Link></p>
+                <div className='d-flex justify-content-center align-items-center my-2'>
+                    <span>Already have an account? </span>
+                    <span><Link to='/login' className=' btn btn-link'>Login here</Link></span>
+                </div>
             </Form.Text>
         </Form>
     );
