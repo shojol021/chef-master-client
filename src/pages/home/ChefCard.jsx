@@ -1,6 +1,7 @@
 import React from 'react';
 import { Button } from 'react-bootstrap';
 import './home.css'
+import { Link } from 'react-router-dom';
 
 const ChefCard = ({ chef }) => {
     const { id, chefName, yearsOfExperience, numRecipes, likes, profileImage, shortBio, recipes, } = chef
@@ -31,7 +32,7 @@ const ChefCard = ({ chef }) => {
                                 </div>
                             </div>
                             <div className='text-center'>
-                                <Button variant='dark' className='w-50'>View Recipes</Button>
+                                <Link to={`/chefs/${id}`}><Button variant='dark' className='w-50'>View Recipes</Button></Link>
                             </div>
                         </div>
                     </div>

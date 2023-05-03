@@ -26,7 +26,7 @@ const ChefsSection = () => {
                 <h2 className='fs-1 text-center text-white mb-0 py-5'>Our Chefs</h2>
 
                 {
-                    chefs.slice(0, seeMore? 8: 5).map(chef => <ChefCard key={chef.id} chef={chef}></ChefCard>)
+                    chefs.slice(0, seeMore? 8: 6).map(chef => <ChefCard key={chef.id} chef={chef}></ChefCard>)
                 }
 
                 <div className='text-center'>

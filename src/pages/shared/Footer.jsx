@@ -68,7 +68,7 @@ const Footer = () => {
                     <Col md={4} className="text-center text-md-end">
                         <h5 className="text-warning mb-3">Contact Us</h5>
                         <p className="text-white mb-0">
-                            Email: contact@mexicancuisine.com
+                            Email: contact@sabormexicano.com
                         </p>
                         <p className="text-white mb-0">Phone: +1 (555) 555-5555</p>
                     </Col>

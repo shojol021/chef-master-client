@@ -19,14 +19,14 @@ function Header() {
 
 
   return (
-    <Navbar collapseOnSelect expand="lg" bg="warning" variant="light" fixed='top'>
+    <Navbar collapseOnSelect expand="lg" bg="warning" variant="light">
       <Container>
         <Navbar.Brand className='fw-bold fs-4'><Link className='text-decoration-none text-dark' to='/'>Sabor Mexicano</Link></Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
             <Link className='text-decoration-none me-2 text-dark' to='/'>Home</Link>
-            <Link className='text-decoration-none me-2 text-dark' to='/'>Blogs</Link>
+            <Link className='text-decoration-none me-2 text-dark' to='/'>Blog</Link>
           </Nav>
           <Nav>
 

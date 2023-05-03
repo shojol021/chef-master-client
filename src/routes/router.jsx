@@ -1,9 +1,10 @@
-import { createBrowserRouter } from "react-router-dom";
+import { createBrowserRouter, useParams } from "react-router-dom";
 import HomeLayout from "../layouts/HomeLayout";
 import Home from "../pages/home/Home";
 import Login from "../pages/login-register/Login";
 import Register from "../pages/login-register/Register";
 import Terms from "../pages/terms/Terms";
+import Chef from "../pages/chefs/Chef";
 
 const router = createBrowserRouter([
     {
@@ -25,6 +26,11 @@ const router = createBrowserRouter([
             {
                 path: '/terms',
                 element: <Terms></Terms>
+            },
+            {
+                path: '/chefs/:id',
+                element: <Chef></Chef>,
+                loader: ({params}) => fetch(`https://assignment-10-ph-server-shojol021.vercel.app/chefs/${params.id}`)
             }
         ]
     }

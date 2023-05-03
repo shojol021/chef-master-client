@@ -1,14 +1,17 @@
 import React from 'react';
 import Banner from './Banner';
 import ChefsSection from './ChefsSection';
-import Footer from '../shared/Footer';
+import Featured from './Featured';
+import Testimonials from './Testimonials';
+
 
 const Home = () => {
     return (
         <div>
             <Banner></Banner>
             <ChefsSection></ChefsSection>
-            <Footer></Footer>
+            <Featured></Featured>
+            <Testimonials></Testimonials>
         </div>
     );
 };

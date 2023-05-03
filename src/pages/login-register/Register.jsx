@@ -50,7 +50,7 @@ const Register = () => {
     }
 
     return (
-        <Form className='w-25 mx-auto mt-3' onSubmit={handleRegister}>
+        <Form className='w-25 mx-auto my-5 border p-3' onSubmit={handleRegister}>
             <h3>Please Register</h3>
             <Form.Group className="mb-3" controlId="formBasicName">
                 <Form.Label>Name</Form.Label>
