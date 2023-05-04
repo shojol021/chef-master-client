@@ -5,7 +5,6 @@ import ChefRecipes from './ChefRecipes';
 
 const Chef = () => {
     const chefData = useLoaderData()
-    console.log(chefData)
 
     return (
         <>

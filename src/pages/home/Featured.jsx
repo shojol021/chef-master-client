@@ -15,15 +15,14 @@ const Featured = () => {
 
     const featured = chefs.filter(chef => chef.featured)
 
-    console.log(featured)
     return (
         <section className="py-5">
             <Container>
-                <h2 className="text-center mb-5">Featured Recipes</h2>
+                <h2 className="text-center mb-3">Featured Recipes</h2>
                 <Row>
                     {
                         featured.map(chef =>
-                            <Col key={chef.id} lg={4} className="mb-4">
+                            <Col key={chef.id} lg={4} className="mb-1">
                                 <CardGroup>
                                     <Card className="shadow">
                                         <Card.Img variant="top" src={chef.profileImage} />

@@ -1,10 +1,12 @@
 import React, { useContext, useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { FaGithub, FaGoogle } from 'react-icons/fa';
 import { AuthContext } from '../../providers/AuthProvider';
 
 const Login = () => {
+    const location = useLocation()
+    const navigate = useNavigate()
 
     const {
         user,
@@ -18,6 +20,7 @@ const Login = () => {
 
     const [success, setSuccess] = useState('')
     const [error, setError] = useState('')
+    const from = location.state?.from.pathname || '/';
 
     const handleLogin = (event) => {
         event.preventDefault()
@@ -40,6 +43,7 @@ const Login = () => {
             .then(res => {
                 const loggedUser = res.user;
                 console.log(loggedUser)
+                navigate(from)
             })
             .catch(error => console.log(error))
     }

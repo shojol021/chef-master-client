@@ -7,6 +7,7 @@ import Terms from "../pages/terms/Terms";
 import Chef from "../pages/chefs/Chef";
 import ErrorPage from "../ErrorPage/ErrorPage";
 import Blog from "../blog/Blog";
+import PrivateRoute from "./PrivateRoute";
 
 const router = createBrowserRouter([
     {
@@ -32,7 +33,7 @@ const router = createBrowserRouter([
             },
             {
                 path: '/chefs/:id',
-                element: <Chef></Chef>,
+                element: <PrivateRoute><Chef></Chef></PrivateRoute>,
                 loader: ({params}) => fetch(`https://assignment-10-ph-server-shojol021.vercel.app/chefs/${params.id}`)
             },
             {

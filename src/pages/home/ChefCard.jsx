@@ -2,10 +2,8 @@ import React, { useContext } from 'react';
 import { Button } from 'react-bootstrap';
 import './home.css'
 import { Link } from 'react-router-dom';
-import { AuthContext } from '../../providers/AuthProvider';
 
-const ChefCard = ({ chef }) => {
-    const {setLoading} = useContext(AuthContext)
+const ChefCard = ({ chef, setLoading }) => {
     const { id, chefName, yearsOfExperience, numRecipes, likes, profileImage, shortBio, recipes, } = chef
     return (
         <div className='py-3'>
@@ -15,7 +13,7 @@ const ChefCard = ({ chef }) => {
                         <img src={profileImage} className="img-fluid rounded-start" alt="chef" />
                     </div>
                     <div className="col-md-8 my-auto">
-                        <h4 className="card-title ms-3">{chefName}</h4>
+                        <h4 className="card-title ms-3 mt-2">{chefName}</h4>
                         <div className="card-body">
                             <div className="container text-center">
                                 <div className="row">

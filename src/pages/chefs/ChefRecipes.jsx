@@ -11,7 +11,6 @@ import { useEffect } from 'react';
 
 function ChefRecipes({ chefData }) {
     const recipes = chefData.recipes
-    console.log(recipes)
     const location = useLocation();
 
     const handleAlert = () => {
@@ -34,15 +33,15 @@ function ChefRecipes({ chefData }) {
                         <Card>
                             <Card.Body>
                                 <Card.Title className='text-warning fw-bold'>{recipe.recipeName}</Card.Title>
-                                <Card.Text>
+                                <div>
                                 <span className='fw-bold'>Cooking Method:</span> {recipe.cookingMethod}
-                                </Card.Text>
-                                <Card.Text>
+                                </div>
+                                <div>
                                     <div className='fw-bold'>Ingredients</div>
                                     <div className='d-flex flex-wrap'>
-                                        {recipe.ingredients.map((ingredient, index) => <div className='me-4'>{index + 1}. {ingredient}</div>)}
+                                        {recipe.ingredients.map((ingredient, index) => <div key={index} className='me-4'>{index + 1}. {ingredient}</div>)}
                                     </div>
-                                </Card.Text>
+                                </div>
                             </Card.Body>
                             <Card.Footer>
                                     <div className='d-flex justify-content-between'>

@@ -2,10 +2,11 @@ import React, { useContext, useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../providers/AuthProvider';
+import { updateProfile } from 'firebase/auth';
 
 const Register = () => {
 
-    const {emailSignUp, updateUser} = useContext(AuthContext)
+    const { emailSignUp, updateUser, user } = useContext(AuthContext)
     const [success, setSuccess] = useState('')
     const [error, setError] = useState('')
     const [accept, setAccept] = useState(false)
@@ -26,27 +27,34 @@ const Register = () => {
         const password = form.password.value;
         const password2 = form.password2.value;
 
-        if(password.length < 6){
+        if (password.length < 6) {
             setError('At least 6 characters')
             return
         }
-        if(!(password === password2)){
+        if (!(password === password2)) {
             setError("Password didn't match")
             return
         }
 
         emailSignUp(email, password)
-        .then(res => {
-            const loggedUser = res.user;
-            console.log(loggedUser)
-            updateUser(name, photo)
-        })
-        .catch(error => {
-            console.log(error.message)
-            if(error.code === 'auth/email-already-in-use'){
-                setError(`${email} is already in use, please login instead.`)
-            }
-        })        
+            .then(res => {
+                const loggedUser = res.user;
+                console.log(loggedUser)
+                updateProfile(loggedUser, {
+                    displayName: name, photoURL: photo
+                })
+                    .then(() => { 
+                        console.log('profile updated') 
+                        
+                    })
+                    .catch(error => console.log('error hoilo', error))
+            })
+            .catch(error => {
+                console.log(error.message)
+                if (error.code === 'auth/email-already-in-use') {
+                    setError(`${email} is already in use, please login instead.`)
+                }
+            })
     }
 
     return (
