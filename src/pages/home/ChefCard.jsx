@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Button } from 'react-bootstrap';
 import './home.css'
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../providers/AuthProvider';
 
 const ChefCard = ({ chef }) => {
+    const {setLoading} = useContext(AuthContext)
     const { id, chefName, yearsOfExperience, numRecipes, likes, profileImage, shortBio, recipes, } = chef
     return (
         <div className='py-3'>
@@ -32,7 +34,7 @@ const ChefCard = ({ chef }) => {
                                 </div>
                             </div>
                             <div className='text-center'>
-                                <Link to={`/chefs/${id}`}><Button variant='dark' className='w-50'>View Recipes</Button></Link>
+                                <Link to={`/chefs/${id}`}><Button onClick={() => setLoading(true)} variant='dark' className='w-50'>View Recipes</Button></Link>
                             </div>
                         </div>
                     </div>
