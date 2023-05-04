@@ -40,6 +40,8 @@ const Register = () => {
             .then(res => {
                 const loggedUser = res.user;
                 console.log(loggedUser)
+                setSuccess('Successfully registered, please login now')
+                form.reset()
                 updateProfile(loggedUser, {
                     displayName: name, photoURL: photo
                 })

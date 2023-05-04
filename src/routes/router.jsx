@@ -8,6 +8,8 @@ import Chef from "../pages/chefs/Chef";
 import ErrorPage from "../ErrorPage/ErrorPage";
 import Blog from "../blog/Blog";
 import PrivateRoute from "./PrivateRoute";
+import Favourite from "../pages/favourite/Favourite";
+import { getFavouriteFromLocalStorage } from "../utilities";
 
 const router = createBrowserRouter([
     {
@@ -39,6 +41,12 @@ const router = createBrowserRouter([
             {
                 path: '/blog',
                 element: <Blog></Blog>
+            },
+            {
+                path: '/favourite',
+                element: <Favourite></Favourite>,
+                loader: getFavouriteFromLocalStorage
+
             }
         ]
     }

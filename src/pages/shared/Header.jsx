@@ -18,7 +18,7 @@ function Header() {
   }
 
   const isActive = (path) => {
-    return location.pathname === path ? 'fw-bold text-primary' : 'text-dark'
+    return location.pathname === path ? 'fw-bold text-success' : 'text-dark'
   }
 
   return (
@@ -28,8 +28,9 @@ function Header() {
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
-            <Link className={`text-decoration-none me-2 ${isActive('/')}`} to='/'>Home</Link>
-            <Link className={`text-decoration-none me-2 ${isActive('/blog')}`} to='/blog'>Blog</Link>
+            <Link className={`text-decoration-none me-4 ${isActive('/')}`} to='/'>Home</Link>
+            <Link className={`text-decoration-none me-4 ${isActive('/blog')}`} to='/blog'>Blog</Link>
+            <Link className={`text-decoration-none me-4 ${isActive('/favourite')}`} to='/favourite'>Favourites</Link>
           </Nav>
           <Nav>
 

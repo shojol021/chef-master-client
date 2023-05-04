@@ -33,6 +33,7 @@ const Login = () => {
             .then(res => {
                 const loggedUser = res.user;
                 console.log(loggedUser)
+                navigate(from)
             })
             .catch(error => console.log(error))
 
@@ -52,6 +53,7 @@ const Login = () => {
             .then(res => {
                 const loggedUser = res.user;
                 console.log(loggedUser)
+                navigate(from)
             })
             .catch(error => console.log(error))
     }

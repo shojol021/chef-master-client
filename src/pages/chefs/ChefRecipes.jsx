@@ -7,22 +7,25 @@ import { Button, Container } from 'react-bootstrap';
 import Swal from 'sweetalert2'
 import { useLocation } from 'react-router-dom';
 import { useEffect } from 'react';
+import { addToLocalStorage } from '../../utilities';
 
 
 function ChefRecipes({ chefData }) {
     const recipes = chefData.recipes
+    console.log(recipes)
     const location = useLocation();
+
 
     const handleAlert = () => {
         Swal.fire(
             'Great!',
             'Recipe is added to your Favourite!',
             'success'
-          )
+        )
     }
     useEffect(() => {
         window.scrollTo(0, 0);
-      }, [location.pathname]);
+    }, [location.pathname]);
 
     return (
         <Container className='my-5'>
@@ -34,7 +37,7 @@ function ChefRecipes({ chefData }) {
                             <Card.Body>
                                 <Card.Title className='text-warning fw-bold'>{recipe.recipeName}</Card.Title>
                                 <div>
-                                <span className='fw-bold'>Cooking Method:</span> {recipe.cookingMethod}
+                                    <span className='fw-bold'>Cooking Method:</span> {recipe.cookingMethod}
                                 </div>
                                 <div>
                                     <div className='fw-bold'>Ingredients</div>
@@ -44,18 +47,18 @@ function ChefRecipes({ chefData }) {
                                 </div>
                             </Card.Body>
                             <Card.Footer>
-                                    <div className='d-flex justify-content-between'>
-                                        <div className='d-flex'>
-                                            <Rating
-                                                style={{ maxWidth: 130 }}
-                                                value={recipe.rating}
-                                                readOnly
-                                            />
-                                            <span>({recipe.rating})</span>
-                                        </div>
-                                        <div><Button onClick={handleAlert} variant='dark'>Add to Favourite</Button></div>
+                                <div className='d-flex justify-content-between'>
+                                    <div className='d-flex'>
+                                        <Rating
+                                            style={{ maxWidth: 130 }}
+                                            value={recipe.rating}
+                                            readOnly
+                                        />
+                                        <span>({recipe.rating})</span>
                                     </div>
-                                </Card.Footer>
+                                    <div><Button onClick={(handleAlert, () => addToLocalStorage(recipe))} variant='dark'>Add to Favourite</Button></div>
+                                </div>
+                            </Card.Footer>
                         </Card>
                     </Col>
                 ))}
