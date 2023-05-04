@@ -5,11 +5,14 @@ import { Rating } from '@smastrom/react-rating'
 import '@smastrom/react-rating/style.css'
 import { Button, Container } from 'react-bootstrap';
 import Swal from 'sweetalert2'
+import { useLocation } from 'react-router-dom';
+import { useEffect } from 'react';
 
 
 function ChefRecipes({ chefData }) {
     const recipes = chefData.recipes
     console.log(recipes)
+    const location = useLocation();
 
     const handleAlert = () => {
         Swal.fire(
@@ -18,6 +21,10 @@ function ChefRecipes({ chefData }) {
             'success'
           )
     }
+    useEffect(() => {
+        window.scrollTo(0, 0);
+      }, [location.pathname]);
+
     return (
         <Container className='my-5'>
             <h3 className='text-center'>Check the recipes from <span className='fw-bold'>{chefData.chefName}</span></h3>

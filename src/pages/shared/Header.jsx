@@ -17,6 +17,11 @@ function Header() {
       .then(res => console.log('SignedOut'))
   }
 
+  const isActive = (path) => {
+    return location.pathname === path? 'fw-bold text-primary' : 'text-dark'
+  }
+
+  console.log(location.pathname)
 
   return (
     <Navbar collapseOnSelect expand="lg" bg="warning" variant="light">
@@ -25,8 +30,8 @@ function Header() {
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
-            <Link className='text-decoration-none me-2 text-dark' to='/'>Home</Link>
-            <Link className='text-decoration-none me-2 text-dark' to='/'>Blog</Link>
+          <Link className={`text-decoration-none me-2 ${isActive('/')}`} to='/'>Home</Link>
+            <Link className={`text-decoration-none me-2 ${isActive('/blog')}`} to='/blog'>Blog</Link>
           </Nav>
           <Nav>
 

@@ -1,0 +1,7 @@
+.active {
+    @apply font-medium text-white transition-colors duration-200
+}
+
+.default {
+    @apply font-medium text-gray-700 transition-colors duration-200 hover: text-sky-500
+}
