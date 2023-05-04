@@ -34,7 +34,7 @@ const ChefsSection = () => {
                 setTimeout(() => {
                     setVisibleCards(prevValue => prevValue + 1);
                     setLoadingMore(false);
-                }, 800);
+                }, 500);
             }
         };
 

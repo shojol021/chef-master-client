@@ -10,6 +10,8 @@ import PrivateRoute from "./PrivateRoute";
 import Favourite from "../pages/favourite/Favourite";
 import { getFavouriteFromLocalStorage } from "../utilities";
 import ErrorPage from "../pages/ErrorPage/ErrorPage";
+import User from "../pages/user/User";
+import AboutUs from "../pages/about-us/AboutUs";
 
 const router = createBrowserRouter([
     {
@@ -46,7 +48,14 @@ const router = createBrowserRouter([
                 path: '/favourite',
                 element: <Favourite></Favourite>,
                 loader: getFavouriteFromLocalStorage
-
+            },
+            {
+                path: '/user',
+                element: <User></User>
+            },
+            {
+                path: '/about',
+                element: <AboutUs></AboutUs>
             }
         ]
     }
