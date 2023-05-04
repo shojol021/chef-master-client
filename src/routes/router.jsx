@@ -5,11 +5,11 @@ import Login from "../pages/login-register/Login";
 import Register from "../pages/login-register/Register";
 import Terms from "../pages/terms/Terms";
 import Chef from "../pages/chefs/Chef";
-import ErrorPage from "../ErrorPage/ErrorPage";
-import Blog from "../blog/Blog";
+import Blog from "../pages/blog/Blog";
 import PrivateRoute from "./PrivateRoute";
 import Favourite from "../pages/favourite/Favourite";
 import { getFavouriteFromLocalStorage } from "../utilities";
+import ErrorPage from "../pages/ErrorPage/ErrorPage";
 
 const router = createBrowserRouter([
     {

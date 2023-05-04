@@ -1,7 +1,7 @@
 import React from 'react';
 import { Card } from 'react-bootstrap';
 import { useLocation, useRouteError } from 'react-router-dom';
-import errorImg from '../assets/errorImage.jpg'
+import errorImg from '../../assets/errorImage.jpg'
 
 const ErrorPage = () => {
     const errorMsg = useRouteError()

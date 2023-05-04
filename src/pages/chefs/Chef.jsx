@@ -1,6 +1,6 @@
 import React from 'react';
-import { Card, Container } from 'react-bootstrap';
-import { useLoaderData } from 'react-router-dom';
+import { Button, Card, Container } from 'react-bootstrap';
+import { Link, useLoaderData } from 'react-router-dom';
 import ChefRecipes from './ChefRecipes';
 
 const Chef = () => {
@@ -41,6 +41,9 @@ const Chef = () => {
                 </Card.ImgOverlay>
             </Card>
             <ChefRecipes chefData={chefData}></ChefRecipes>
+            <div className='text-center mb-3'>
+                <Link to='/'><Button variant='dark'>Go Back</Button></Link>
+            </div>
         </>
     );
 };

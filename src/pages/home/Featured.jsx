@@ -4,7 +4,6 @@ import { FaRegClock } from "react-icons/fa";
 
 const Featured = () => {
     const [chefs, setChefs] = useState([])
-    const [seeMore, setSeeMore] = useState(false)
 
     useEffect(() => {
         fetch('https://assignment-10-ph-server-shojol021.vercel.app/chefs')

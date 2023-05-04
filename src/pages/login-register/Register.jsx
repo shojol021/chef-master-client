@@ -43,13 +43,13 @@ const Register = () => {
             .then(res => {
                 const loggedUser = res.user;
                 console.log(loggedUser)
-                setSuccess('Successfully registered, please login now')
+                setSuccess('Successfully registered')
                 form.reset()
                 updateProfile(loggedUser, {
                     displayName: name, photoURL: photo
                 })
                     .then(() => { 
-                        navigate('/')
+                        navigate('/register')
                         
                     })
                     .catch(error => setError(error.message))
