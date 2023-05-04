@@ -3,7 +3,7 @@ import { Button } from 'react-bootstrap';
 import './home.css'
 import { Link } from 'react-router-dom';
 
-const ChefCard = ({ chef, setLoading }) => {
+const ChefCard = ({ chef, setLoader }) => {
     const { id, chefName, yearsOfExperience, numRecipes, likes, profileImage, shortBio, recipes, } = chef
     return (
         <div className='py-3'>
@@ -32,7 +32,7 @@ const ChefCard = ({ chef, setLoading }) => {
                                 </div>
                             </div>
                             <div className='text-center'>
-                                <Link to={`/chefs/${id}`}><Button onClick={() => setLoading(true)} variant='dark' className='w-50'>View Recipes</Button></Link>
+                                <Link to={`/chefs/${id}`}><Button onClick={() => setLoader(true)} variant='dark' className='w-50'>View Recipes</Button></Link>
                             </div>
                         </div>
                     </div>

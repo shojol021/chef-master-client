@@ -4,7 +4,7 @@ import { Spinner } from 'react-bootstrap';
 
 const ChefsSection = () => {
 
-    const [loading, setLoading] = useState(false)
+    const [loader, setLoader] = useState(false)
     const [loadingMore, setLoadingMore] = useState(false)
     const [chefs, setChefs] = useState([])
     const [seeMore, setSeeMore] = useState(false)
@@ -13,16 +13,16 @@ const ChefsSection = () => {
     const bottomRef = useRef();
 
     useEffect(() => {
-        setLoading(true)
+        setLoader(true)
         fetch('https://assignment-10-ph-server-shojol021.vercel.app/chefs')
             .then(res => res.json())
             .then(data => {
                 setChefs(data);
-                setLoading(false);
+                setLoader(false);
             })
             .catch(error => {
                 console.log(error);
-                setLoading(false);
+                setLoader(false);
             })
     }, [])
 
@@ -48,7 +48,7 @@ const ChefsSection = () => {
     return (
         <>
             {
-                (loading || loadingMore) &&
+                (loader || loadingMore) &&
                 <div style={{ position: 'fixed', zIndex: 9999, top: 0, left: 0, width: '100%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                     <Spinner animation="border" variant="warning" />
                 </div>
@@ -57,7 +57,7 @@ const ChefsSection = () => {
             <div className='background-img background py-5 my-'>
                 <h2 className='fs-1 text-center text-white mb-0 py-5'>Our Chefs</h2>
 
-                {visibleChefs.map(chef => <ChefCard key={chef.id} chef={chef} setLoading={setLoading}></ChefCard>)}
+                {visibleChefs.map(chef => <ChefCard key={chef.id} chef={chef} setLoader={setLoader}></ChefCard>)}
 
                 {visibleCards < chefs.length && <div ref={bottomRef}></div>}
             </div>

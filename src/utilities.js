@@ -1,3 +1,5 @@
+import Swal from 'sweetalert2'
+
 const addToLocalStorage = (recipe) => {
     let favourites = [];
     const storedRecipes = JSON.parse(localStorage.getItem('favourite-recipe'))
@@ -8,7 +10,11 @@ const addToLocalStorage = (recipe) => {
             localStorage.setItem('favourite-recipe', JSON.stringify(favourites))
         }
         else {
-            alert('Already in your favorite')
+           
+            Swal.fire({
+                icon: 'error',
+                text: 'Already in your favourite!',
+              })
         }
     }
     else {

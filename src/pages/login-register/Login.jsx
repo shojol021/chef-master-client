@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, useRef } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { FaGithub, FaGoogle } from 'react-icons/fa';
@@ -7,11 +7,9 @@ import { AuthContext } from '../../providers/AuthProvider';
 const Login = () => {
     const location = useLocation()
     const navigate = useNavigate()
+    const emailField = useRef()
 
     const {
-        user,
-        loading,
-        emailSignUp,
         emailLogin,
         forgotPassword,
         googleLogin,
@@ -23,6 +21,8 @@ const Login = () => {
     const from = location.state?.from.pathname || '/';
 
     const handleLogin = (event) => {
+        setError('')
+        setSuccess('')
         event.preventDefault()
 
         const form = event.target;
@@ -35,7 +35,14 @@ const Login = () => {
                 console.log(loggedUser)
                 navigate(from)
             })
-            .catch(error => console.log(error))
+            .catch(error => {
+                if (error.message === 'Firebase: Error (auth/wrong-password).') {
+                    setError("Provided wrong email or password")
+                }
+                else{
+                    setError(error.message)
+                }
+            })
 
     }
 
@@ -46,7 +53,7 @@ const Login = () => {
                 console.log(loggedUser)
                 navigate(from)
             })
-            .catch(error => console.log(error))
+            .catch(error => setError(error))
     }
     const handleGithubLogin = () => {
         githubLogin()
@@ -55,7 +62,20 @@ const Login = () => {
                 console.log(loggedUser)
                 navigate(from)
             })
-            .catch(error => console.log(error))
+            .catch(error => setError(error))
+    }
+
+    const handleResetPassword = (e) => {
+        setError('')
+        setSuccess('')
+        const email = emailField.current.value;
+        forgotPassword(email)
+            .then(() => {
+                setSuccess(`Password reset email sent to ${email}`)
+            })
+            .catch((error) => {
+                setError(error.message);
+            });
     }
 
 
@@ -64,7 +84,7 @@ const Login = () => {
             <h3>Please Login</h3>
             <Form.Group className="mb-3" controlId="formBasicEmail">
                 <Form.Label>Email address</Form.Label>
-                <Form.Control type="email" name='email' placeholder="Enter email" required />
+                <Form.Control ref={emailField} type="email" name='email' placeholder="Enter email" required />
             </Form.Group>
 
             <Form.Group className="mb-3" controlId="formBasicPassword">
@@ -72,9 +92,9 @@ const Login = () => {
                 <Form.Control type="password" name='password' placeholder="Password" required />
             </Form.Group>
             <Form.Text className="text-muted">
-                <p className='mb-3'>{success}</p>
-                <p className='mb-3'>{error}</p>
-                <p className='mb-3 btn-link'>Fogot password?</p>
+                <p className='mb-3 text-success'>{success}</p>
+                <p className='mb-3 text-danger'>{error}</p>
+                <p onClick={handleResetPassword} className='mb-3 btn-link'>Fogot password?</p>
             </Form.Text>
             <Button variant="dark" type="submit">
                 Submit

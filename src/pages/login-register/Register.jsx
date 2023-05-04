@@ -3,13 +3,16 @@ import { Button, Form } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../providers/AuthProvider';
 import { updateProfile } from 'firebase/auth';
+import { useNavigate } from 'react-router-dom';
 
 const Register = () => {
 
-    const { emailSignUp, updateUser, user } = useContext(AuthContext)
+    const { emailSignUp } = useContext(AuthContext)
     const [success, setSuccess] = useState('')
     const [error, setError] = useState('')
     const [accept, setAccept] = useState(false)
+
+    const navigate = useNavigate()
 
     const checkBox = (e) => {
         const isChecked = e.target.checked;
@@ -46,10 +49,10 @@ const Register = () => {
                     displayName: name, photoURL: photo
                 })
                     .then(() => { 
-                        console.log('profile updated') 
+                        navigate('/')
                         
                     })
-                    .catch(error => console.log('error hoilo', error))
+                    .catch(error => setError(error.message))
             })
             .catch(error => {
                 console.log(error.message)

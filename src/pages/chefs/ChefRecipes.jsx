@@ -8,12 +8,13 @@ import Swal from 'sweetalert2'
 import { useLocation } from 'react-router-dom';
 import { useEffect } from 'react';
 import { addToLocalStorage } from '../../utilities';
+import { useState } from 'react';
 
 
 function ChefRecipes({ chefData }) {
     const recipes = chefData.recipes
-    console.log(recipes)
     const location = useLocation();
+    const [clicked, setClicked] = useState(Array(recipes.length).fill(false));
 
 
     const handleAlert = () => {
@@ -56,7 +57,15 @@ function ChefRecipes({ chefData }) {
                                         />
                                         <span>({recipe.rating})</span>
                                     </div>
-                                    <div><Button onClick={(handleAlert, () => addToLocalStorage(recipe))} variant='dark'>Add to Favourite</Button></div>
+                                    <div><Button disabled={clicked[idx]}
+                                        onClick={() => {
+                                            handleAlert();
+                                            addToLocalStorage(recipe);
+                                            const newClicked = [...clicked];
+                                            newClicked[idx] = true;
+                                            setClicked(newClicked);
+                                        }}
+                                        variant='dark'>Add to Favourite</Button></div>
                                 </div>
                             </Card.Footer>
                         </Card>

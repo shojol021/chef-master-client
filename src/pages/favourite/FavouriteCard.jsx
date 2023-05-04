@@ -3,7 +3,7 @@ import { Card } from 'react-bootstrap';
 
 const FavouriteCard = ({ favourite }) => {
     return (
-        <div>
+        <div className='my-3'>
             <Card>
                 <Card.Body>
                     <Card.Title className='text-warning fw-bold'>{favourite.recipeName}</Card.Title>

@@ -8,7 +8,7 @@ const Terms = () => {
     <div className="container py-4">
       <h1 className="mb-4">Terms and Conditions</h1>
       <p className="lead">
-        Welcome to Mexican Cuisine! By using our website, you agree to the following terms and conditions:
+        Welcome to Sabor Mexicano! By using our website, you agree to the following terms and conditions:
       </p>
       <ul>
         <li>The content on this website is for informational purposes only.</li>
