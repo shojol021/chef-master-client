@@ -31,5 +31,5 @@ This project was developed by Adnan Hossain Shojol and is licensed under the MIT
 
 I would like to thank the following people for their contributions to this project:
 
-- Jhankar Mahbub sir, for providing to teach such an effecient way to develop this project.
+- Jhankar Mahbub sir, for teaching such an effecient way to develop this project and for the great great mentorship.
 - Programing Hero support team, for their brilliant support.
