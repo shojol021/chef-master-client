@@ -110,8 +110,6 @@ const Login = () => {
                 <Button onClick={handleGoogLogin} variant="outline-success" className='w-100 my-2'><FaGoogle className='me-2'></FaGoogle>Login with Google</Button><br />
                 <Button onClick={handleGithubLogin} variant="outline-dark" className='w-100 my-2'><FaGithub className='me-2'></FaGithub>Login with Github</Button>
             </div>
-
-
         </Form>
     );
 };

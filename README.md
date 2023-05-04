@@ -1,6 +1,6 @@
 # Mexican Recipe Website
 
-- Live Site: https://chef-recipe-hunter-asmnt10.web.app/
+- Live Site: https://chef-assignment10.web.app/
 
 This is a Mexican food recipes website for food enthusiasts who want to discover new recipes and share their own. Here are some key features of the project:
 
