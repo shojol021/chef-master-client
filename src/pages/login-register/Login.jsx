@@ -3,6 +3,7 @@ import { Button, Form } from 'react-bootstrap';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { FaGithub, FaGoogle } from 'react-icons/fa';
 import { AuthContext } from '../../providers/AuthProvider';
+import './login.css'
 
 const Login = () => {
     const location = useLocation()
@@ -13,7 +14,8 @@ const Login = () => {
         emailLogin,
         forgotPassword,
         googleLogin,
-        githubLogin
+        githubLogin,
+        setLoading
     } = useContext(AuthContext)
 
     const [success, setSuccess] = useState('')
@@ -36,8 +38,12 @@ const Login = () => {
                 navigate(from)
             })
             .catch(error => {
+                setLoading(false)
                 if (error.message === 'Firebase: Error (auth/wrong-password).') {
                     setError("Provided wrong email or password")
+                }
+                else if (error.message === 'Firebase: Error (auth/user-not-found).') {
+                    setError("Sign up first or try login with Google, Github")
                 }
                 else{
                     setError(error.message)
@@ -80,7 +86,7 @@ const Login = () => {
 
 
     return (
-        <Form className='w-25 mx-auto border p-3 my-5' onSubmit={handleLogin}>
+        <Form className='form-width mx-auto border p-3 my-5' onSubmit={handleLogin}>
             <h3>Please Login</h3>
             <Form.Group className="mb-3" controlId="formBasicEmail">
                 <Form.Label>Email address</Form.Label>

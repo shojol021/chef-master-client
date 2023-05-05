@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { AuthContext } from '../../providers/AuthProvider';
 import { updateProfile } from 'firebase/auth';
 import { useNavigate } from 'react-router-dom';
+import './login.css'
 
 const Register = () => {
 
@@ -63,7 +64,7 @@ const Register = () => {
     }
 
     return (
-        <Form className='w-25 mx-auto my-5 border p-3' onSubmit={handleRegister}>
+        <Form className='form-width mx-auto my-5 border p-3' onSubmit={handleRegister}>
             <h3>Please Register</h3>
             <Form.Group className="mb-3" controlId="formBasicName">
                 <Form.Label>Name</Form.Label>
