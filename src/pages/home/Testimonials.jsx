@@ -12,9 +12,9 @@ const Testimonials = () => {
             <hr className="mx-auto" />
           </Col>
         </Row>
-        <Row className="gx-5">
+        <Row className="gx-md-5 align-items-stretch">
           <Col md={4} className="mb-4">
-            <div className="card shadow border-0">
+            <div className="card shadow border-0 h-100">
               <div className="card-body">
                 <FaQuoteLeft className="mb-2" size={30} />
                 <p className="card-text">
@@ -27,7 +27,7 @@ const Testimonials = () => {
             </div>
           </Col>
           <Col md={4} className="mb-4">
-            <div className="card shadow border-0">
+            <div className="card shadow border-0 h-100">
               <div className="card-body">
                 <FaQuoteLeft className="mb-2" size={30} />
                 <p className="card-text">
@@ -40,7 +40,7 @@ const Testimonials = () => {
             </div>
           </Col>
           <Col md={4} className="mb-4">
-            <div className="card shadow border-0">
+            <div className="card shadow border-0 h-100">
               <div className="card-body">
                 <FaQuoteLeft className="mb-2" size={30} />
                 <p className="card-text">

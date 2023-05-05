@@ -31,10 +31,10 @@ function ChefRecipes({ chefData }) {
     return (
         <Container className='my-5'>
             <h3 className='text-center'>Check the recipes from <span className='fw-bold'>{chefData.chefName}</span></h3>
-            <Row xs={1} md={2} className="g-4">
+            <Row xs={1} md={2} className="g-4 align-items-stretch">
                 {recipes.map((recipe, idx) => (
                     <Col key={idx}>
-                        <Card>
+                        <Card className="h-100">
                             <Card.Body>
                                 <Card.Title className='text-warning fw-bold'>{recipe.recipeName}</Card.Title>
                                 <div>

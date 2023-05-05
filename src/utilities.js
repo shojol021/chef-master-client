@@ -1,5 +1,6 @@
 import Swal from 'sweetalert2'
 
+//add favourite recipe array to local storage from the favorite button click 
 const addToLocalStorage = (recipe) => {
     let favourites = [];
     const storedRecipes = JSON.parse(localStorage.getItem('favourite-recipe'))
@@ -23,6 +24,7 @@ const addToLocalStorage = (recipe) => {
     }
 }
 
+//getting array of objects of recipes from local storage
 const getFavouriteFromLocalStorage = () => {
     const storedRecipes = JSON.parse(localStorage.getItem('favourite-recipe'))
     return storedRecipes;

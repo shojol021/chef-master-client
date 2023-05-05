@@ -20,7 +20,7 @@ function User() {
   };
 
   const handleUpdateProfile = () => {
-    //firebase update profile logic goes here
+    //firebase update profile logic
     updateProfile(user, {
         displayName: name
     })

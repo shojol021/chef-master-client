@@ -1,3 +1,9 @@
 .img-size {
     width: 50px;
 }
+
+@media(max-width: 576px){
+    .mb-small{
+        margin-bottom: 5px;
+    }
+}

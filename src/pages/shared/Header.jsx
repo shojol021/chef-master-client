@@ -28,15 +28,15 @@ function Header() {
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
-            <Link className={`text-decoration-none me-4 ${isActive('/')}`} to='/'>Home</Link>
-            <Link className={`text-decoration-none me-4 ${isActive('/blog')}`} to='/blog'>Blog</Link>
-            <Link className={`text-decoration-none me-4 ${isActive('/favourite')}`} to='/favourite'>Favourites</Link>
-            <Link className={`text-decoration-none me-4 ${isActive('/about')}`} to='/about'>About Us</Link>
+            <Link className={`text-decoration-none me-4 mb-small ${isActive('/')}`} to='/'>Home</Link>
+            <Link className={`text-decoration-none me-4 mb-small ${isActive('/blog')}`} to='/blog'>Blog</Link>
+            <Link className={`text-decoration-none me-4 mb-small ${isActive('/favourite')}`} to='/favourite'>Favourites</Link>
+            <Link className={`text-decoration-none me-4 mb-small ${isActive('/about')}`} to='/about'>About Us</Link>
           </Nav>
           <Nav>
 
             {user ?
-              <><Link to='/user'><img className='img-size rounded me-2' src={user.photoURL} data-toggle="tooltip" data-placement="left" title={user.displayName} alt="" /></Link>
+              <><Link to='/user'><img className='img-size rounded me-2 mb-small' src={user.photoURL} data-toggle="tooltip" data-placement="left" title={user.displayName} alt="" /></Link>
                 <Link to='/login'><Button onClick={handleLogOut} variant='dark'>Signout</Button></Link></> :
               location.pathname === '/login' ?
                 <><FaUserAlt className='fs-2 my-auto mb-2 mb-md-1 mx-2' /><Link to='/register'><Button variant='dark'>Register</Button></Link></> :

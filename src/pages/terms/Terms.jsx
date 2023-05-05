@@ -18,7 +18,7 @@ const Terms = () => {
         <li>You are responsible for ensuring that any information you provide on this website is accurate and up-to-date.</li>
         <li>You may not use this website for any illegal or unauthorized purpose.</li>
         <li>We reserve the right to terminate your access to this website for any reason at any time.</li>
-        <li>These terms and conditions are governed by the laws of the State of California.</li>
+        <li>These terms and conditions are governed by the laws of the State of Mexico.</li>
       </ul>
       <Link to='/register'><Button variant="dark"><FaArrowLeft></FaArrowLeft> Go back to Register page</Button></Link>
     </div>

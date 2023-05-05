@@ -1,3 +1,4 @@
+import { Rating } from "@smastrom/react-rating";
 import React, { useEffect, useState } from "react";
 import { Container, Row, Col, Card, CardGroup } from "react-bootstrap";
 import { FaRegClock } from "react-icons/fa";
@@ -17,13 +18,13 @@ const Featured = () => {
     return (
         <section className="py-5">
             <Container>
-                <h2 className="text-center mb-3">Featured Recipes</h2>
+                <h2 className="row-cols-1 row-cols-md-3 g-4 align-items-stretch">Featured Recipes</h2>
                 <Row>
                     {
                         featured.map(chef =>
                             <Col key={chef.id} lg={4} className="mb-1">
-                                <CardGroup>
-                                    <Card className="shadow">
+                                <CardGroup className="h-100">
+                                    <Card className="shadow -h-100">
                                         <Card.Img variant="top" src={chef.profileImage} />
                                         <Card.Body>
                                             <Card.Title>{chef.recipes.find(r => r.rating > 4.8).recipeName}</Card.Title>
@@ -32,9 +33,13 @@ const Featured = () => {
                                             </Card.Text>
                                         </Card.Body>
                                         <Card.Footer>
-                                            <small className="text-muted">
-                                                <FaRegClock className="me-2" />
-                                                30 mins
+                                            <small className="text-muted d-flex">
+                                                <Rating
+                                                    style={{ maxWidth: 130 }}
+                                                    value={`4.${chef.id+5}`}
+                                                    readOnly
+                                                />
+                                                (4.{chef.id+5})
                                             </small>
                                         </Card.Footer>
                                     </Card>
